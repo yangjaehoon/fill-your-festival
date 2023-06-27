@@ -1,5 +1,5 @@
 import 'package:feple/data/my_location.dart';
-import 'package:feple/weather/screens/weather_screnn.dart';
+import 'package:feple/weather/screens/weather_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:feple/data/network.dart';
 const apiKey = '8a5641156b4c3c4db251c584d89e78e1';
@@ -31,12 +31,12 @@ class _LoadingState extends State<Loading> {
     print(latitude3);
     print(longitude3);
 
-    Network network = Network('https://api.openweathermap.org/data/2.5/weather?lat=${latitude3}&lon=${longitude3}&appid=${apiKey}');
+    Network network = Network('https://api.openweathermap.org/data/2.5/weather?lat=${latitude3}&lon=${longitude3}&appid=${apiKey}&units=metric');
     //Network network = Network('https://samples.openweathermap.org/data/2.5/weather?q=London&appid=b1b15e88fa797225412429c1c50c122a1');
     var weatherData = await network.getJsonData();
     print(weatherData);
     Navigator.push(context, MaterialPageRoute(builder: (context){
-      return WeatherScreen();
+      return WeatherScreen(parseWeatherData: weatherData,);
     } ));
   }
 /*
