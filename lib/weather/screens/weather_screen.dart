@@ -3,6 +3,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:timer_builder/timer_builder.dart';
 import 'package:intl/intl.dart';
+import 'package:feple/model/model.dart';
 
 class WeatherScreen extends StatefulWidget {
   WeatherScreen({this.parseWeatherData});
@@ -14,8 +15,10 @@ class WeatherScreen extends StatefulWidget {
 }
 
 class _WeatherScreenState extends State<WeatherScreen> {
+  Model model = Model();
   String? cityName;
   int temp = 0;
+  Widget? icon;
   var date = DateTime.now();
 
   @override
@@ -26,8 +29,10 @@ class _WeatherScreenState extends State<WeatherScreen> {
 
   void updateData(dynamic weatherData) {
     double temp2 = weatherData['main']['temp'];
-    temp = temp2.round();
+    int condition = weatherData['weather'][0]['id']
+;    temp = temp2.round();
     cityName = weatherData['name'];
+    icon = model.getWeatherIcon(condition);
 
     print(temp);
     print(cityName);
@@ -83,7 +88,7 @@ class _WeatherScreenState extends State<WeatherScreen> {
                                     height: 150.0,
                                   ),
                                   Text(
-                                    'Seoul',
+                                    '$cityName',
                                     style: GoogleFonts.lato(
                                       fontSize: 35.0,
                                       fontWeight: FontWeight.bold,
@@ -120,7 +125,7 @@ class _WeatherScreenState extends State<WeatherScreen> {
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 Text(
-                                  '18\u2103',
+                                  '${temp}\u2103',
                                   style: GoogleFonts.lato(
                                     fontSize: 85.0,
                                     fontWeight: FontWeight.w300,
@@ -129,8 +134,7 @@ class _WeatherScreenState extends State<WeatherScreen> {
                                 ),
                                 Row(
                                   children: [
-                                    SvgPicture.asset(
-                                        'svg/weather_icon/climacon-sun.svg'),
+                                    icon!,
                                     SizedBox(
                                       width: 10.0,
                                     ),
