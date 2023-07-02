@@ -1,7 +1,8 @@
-import 'package:fyf/data/my_location.dart';
+import 'package:fyf/weather/data/my_location.dart';
 import 'package:fyf/weather/screens/weather_screen.dart';
 import 'package:flutter/material.dart';
-import 'package:fyf/data/network.dart';
+import 'package:fyf/weather/data/network.dart';
+
 const apiKey = '8a5641156b4c3c4db251c584d89e78e1';
 
 class Loading extends StatefulWidget {
@@ -12,7 +13,6 @@ class Loading extends StatefulWidget {
 }
 
 class _LoadingState extends State<Loading> {
-
   double? latitude3;
   double? longitude3;
 
@@ -23,7 +23,7 @@ class _LoadingState extends State<Loading> {
     getLocation();
   }
 
-  void getLocation() async{
+  void getLocation() async {
     MyLocation myLocation = MyLocation();
     await myLocation.getMyCurrentLocation();
     latitude3 = myLocation.latitude2;
@@ -31,14 +31,26 @@ class _LoadingState extends State<Loading> {
     print(latitude3);
     print(longitude3);
 
-    Network network = Network('https://api.openweathermap.org/data/2.5/weather?lat=${latitude3}&lon=${longitude3}&appid=${apiKey}&units=metric');
+    Network network = Network(
+        'https://api.openweathermap.org/data/2.5/weather'
+            '?lat=${latitude3}&lon=${longitude3}&appid=${apiKey}&units=metric',
+        'http://api.openweathermap.org/data/2.5/air_pollution'
+            '?lat=${latitude3}&lon=${longitude3}&appid=${apiKey}');
     //Network network = Network('https://samples.openweathermap.org/data/2.5/weather?q=London&appid=b1b15e88fa797225412429c1c50c122a1');
     var weatherData = await network.getJsonData();
     print(weatherData);
-    Navigator.push(context, MaterialPageRoute(builder: (context){
-      return WeatherScreen(parseWeatherData: weatherData,);
-    } ));
+
+    var airData = await network.getAirData();
+    print(airData);
+
+    Navigator.push(context, MaterialPageRoute(builder: (context) {
+      return WeatherScreen(
+        parseWeatherData: weatherData,
+        parseAirPollution: airData,
+      );
+    }));
   }
+
 /*
   void fetchData() async{
 
@@ -60,7 +72,7 @@ class _LoadingState extends State<Loading> {
     return Scaffold(
       body: Center(
         child: ElevatedButton(
-          onPressed: (){},
+          onPressed: () {},
           child: Text(
             'Get my location',
             style: TextStyle(
