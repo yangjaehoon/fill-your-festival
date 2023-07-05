@@ -42,3 +42,9 @@ app.*.map.json
 /android/app/debug
 /android/app/profile
 /android/app/release
+
+# 내가 추가한거
+.firebase/
+.firebaserc
+firebase.json
+firebase.exe
