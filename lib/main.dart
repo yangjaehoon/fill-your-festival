@@ -6,10 +6,16 @@ import 'package:fyf/screen/login_with_firebase.dart';
 import 'package:fyf/weather/screens/loading.dart';
 import 'package:fyf/chatting_app/screens/main_screen.dart';
 
+import 'package:firebase_core/firebase_core.dart';
+import 'firebase_options.dart';
 
 import 'package:flutter/material.dart';
 
-void main(){
+void main() async{
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
   runApp(
     MaterialApp(
       //home: Loading(), //로딩창과 날씨화면 보여주는거
