@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>767574809824-qfuqp68f4lb2d60iarnqmmnbfjtoekgn.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.767574809824-qfuqp68f4lb2d60iarnqmmnbfjtoekgn</string>
+	<key>API_KEY</key>
+	<string>AIzaSyDOGc9ru9unpEaVqs2PwTIvqb4OLAp0gV0</string>
+	<key>GCM_SENDER_ID</key>
+	<string>767574809824</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.example.fyf</string>
+	<key>PROJECT_ID</key>
+	<string>coding-chatting-yjh</string>
+	<key>STORAGE_BUCKET</key>
+	<string>coding-chatting-yjh.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:767574809824:ios:f49dccb1e263ecad9e8485</string>
+	<key>DATABASE_URL</key>
+	<string>https://coding-chatting-yjh-default-rtdb.asia-southeast1.firebasedatabase.app</string>
+</dict>
+</plist>

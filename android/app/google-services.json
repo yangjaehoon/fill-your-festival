@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "767574809824",
+    "firebase_url": "https://coding-chatting-yjh-default-rtdb.asia-southeast1.firebasedatabase.app",
+    "project_id": "coding-chatting-yjh",
+    "storage_bucket": "coding-chatting-yjh.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:767574809824:android:4a757a3c2418ad339e8485",
+        "android_client_info": {
+          "package_name": "com.example.fyf"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "767574809824-tdnrkosso6l6gfg1ioniul48vppquj5u.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD7pVXaqQ3BFIWpfDXZ-q1SO7_lzCaeL58"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "767574809824-tdnrkosso6l6gfg1ioniul48vppquj5u.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "767574809824-qfuqp68f4lb2d60iarnqmmnbfjtoekgn.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.fyf"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
