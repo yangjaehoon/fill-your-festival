@@ -350,6 +350,9 @@ class _LoginSignupScreenState extends State<LoginSingupScreen> {
                                   onSaved: (value) {
                                     userEmail = value!;
                                   },
+                                  onChanged: (value){
+                                    userEmail = value;
+                                  },
                                   decoration: const InputDecoration(
                                     prefixIcon: Icon(
                                       Icons.account_circle,
@@ -392,6 +395,9 @@ class _LoginSignupScreenState extends State<LoginSingupScreen> {
                                   },
                                   onSaved: (value) {
                                     userPassword = value!;
+                                  },
+                                  onChanged: (value) {
+                                    userPassword = value;
                                   },
                                   decoration: const InputDecoration(
                                     prefixIcon: Icon(
@@ -458,14 +464,12 @@ class _LoginSignupScreenState extends State<LoginSingupScreen> {
                             password: userPassword,
                           );
 
-                          if(newUser.user != null){
+                          if (newUser.user != null) {
                             Navigator.push(
-                                context,
-                                MaterialPageRoute(builder: (context){
-                                  return ChatScreen();
-                                }
-
-                                ),
+                              context,
+                              MaterialPageRoute(builder: (context) {
+                                return ChatScreen();
+                              }),
                             );
                           }
                         } catch (e) {
@@ -473,11 +477,14 @@ class _LoginSignupScreenState extends State<LoginSingupScreen> {
                           ScaffoldMessenger.of(context).showSnackBar(
                             SnackBar(
                               content:
-                              Text('Please check your email and password'),
+                                  Text('Please check your email and password'),
                               backgroundColor: Colors.blue,
                             ),
                           );
                         }
+                      }
+                      if (!isSignupScreen) {
+                        _tryValidation();
                       }
                     },
                     child: Container(
